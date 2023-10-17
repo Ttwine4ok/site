@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Форум МТФК</title>
+    <meta property="og:title" content="Форум МТФК'">
+    <meta property="og:locale" content="en_EU">
+    <meta property="og:description" content="Форум МТФК">
+    <link rel="shortcut icon" href="assets/images/ava.png" type="image/png">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/fonts/fonts.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script src="assets/js/getLatestVersion.js"></script>
+    <script src="assets/js/code.js"></script>
+</head>
+<body>
+    <div id="page-preloader">
+        <script type="text/javascript">$(window).on('load', function(){var $pre=$('#page-preloader'), $pre; $pre.delay(500).fadeOut('slow');}); </script>
+    </div>
+    <div class="header">
+        <a class="main">
+            <img class="logo" src="assets/images/ava.png"></img>
+            <div class="name">МТФК форум</div>
+        </a>
+        <div class="appinfo">
+            <div class="bash">
+                <div class="terminal"> <span style="color: greenyellow">Добро пожаловать на форум МТФК</span></div>
+        </div>
+        <div class="appinfo">
+            <div id="version">
+                <div>
+                    <form action="/add" method="post">
+                        <input type="text" name="message" placeholder="напишите сообщение" required>
+                        <input type="submit" value="Отправить">
+                    </form>
+                </div>
+            </div>
+        </div>        
+
+        <div id="version">
+            <div>
+                {% for message in messages %}
+                <li>
+                    <span class="timestamp" style="color: greenyellow">{{ message[2].split(" ")[1].split(":")[0] }}:{{ message[2].split(" ")[1].split(":")[1] }}</span>
+                    - {{ message[1] }}
+                </li>
+                {% endfor %}
+            </div>
+    </div>
+        <div class="footer">
+            mtfkforum © 2023
+        <div class="credits">forum created by anonymous.</div>
+    </div>        
+</body>
+</html>
